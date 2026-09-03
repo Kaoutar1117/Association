@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Envoi du formulaire via EmailJS
       emailjs
-        .sendForm(serviceID, templateID, formInscription)
+        .sendForm(serviceID, templateID, formInscription,PUBLIC_KEY)
         .then(() => {
           alert("Votre demande d'inscription a bien été envoyée ! Nous vous contacterons rapidement.");
           formInscription.reset();
