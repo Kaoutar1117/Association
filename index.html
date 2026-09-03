@@ -1,226 +1,351 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Site officiel de l'association Mosaïque Citoyenne. Découvrez nos cours, nos activités et rejoignez-nous !">
-    <title>Mosaïque Citoyenne - Association Éducative à Goussainville</title>
-    <!-- Font Awesome pour les icônes pro -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Site officiel de l'association Mosaïque Citoyenne. Découvrez nos cours, nos activités et rejoignez-nous !">
+  <title>Mosaïque Citoyenne - Association Éducative à Goussainville</title>
+  <!-- Font Awesome pour les icônes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
 
-    <!-- Header / Navigation -->
-    <header>
-        <div class="header-container">
-            <a href="#" class="logo">
-                <i class="fa-solid fa-graduation-cap logo-icon"></i>
-                <span>Mosaïque <strong>Citoyenne</strong></span>
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="#presentation">Présentation</a></li>
-                    <li><a href="#cours">Nos Cours</a></li>
-                    <li><a href="#activites">Vie associative</a></li>
-                    <li><a href="#inscription" class="btn-nav">S'inscrire</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <!-- Header / Navigation -->
+  <header>
+    <div class="header-container">
+      <a href="#" class="logo">
+        <i class="fa-solid fa-graduation-cap logo-icon"></i>
+        <span>Mosaïque <strong>Citoyenne</strong></span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#presentation">Présentation</a></li>
+          <li><a href="#activites">Vie associative</a></li>
+          <li><a href="#cours">Nos Cours</a></li>
+          <li><a href="#inscription" class="btn-nav">S'inscrire</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Banner / Hero Section -->
-    <section class="hero" id="presentation">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <span class="badge-hero"><i class="fa-solid fa-heart"></i> Mosaïque Citoyenne — Goussainville</span>
-            <h1>L'Éducation et la Réussite pour Tous</h1>
-            <p>Accompagnement scolaire, soutien scientifique et cours de français. Un espace d'apprentissage inclusif et chaleureux au cœur de notre ville.</p>
-            <div class="hero-buttons">
-                <a href="#cours" class="btn btn-primary"><i class="fa-solid fa-book-open"></i> Découvrir nos cours</a>
-                <a href="#inscription" class="btn btn-secondary"><i class="fa-solid fa-pen-to-square"></i> Pré-inscription en ligne</a>
-            </div>
-            <div class="hero-info-bar">
-                <div class="info-item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <div>
-                        <strong>Notre Adresse</strong>
-                        <span>2 Rue Ela Constantinide, 95190 Goussainville</span>
-                    </div>
-                </div>
-                <div class="info-item">
-                    <i class="fa-solid fa-clock"></i>
-                    <div>
-                        <strong>Permanence et Cours</strong>
-                        <span>En semaine et le Dimanche</span>
-                    </div>
-                </div>
-            </div>
+  <!-- Banner / Hero Section -->
+  <section class="hero" id="presentation">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="badge-hero"><i class="fa-solid fa-heart"></i> Mosaïque Citoyenne depuis 2015 — Goussainville</span>
+      <h1>L'Éducation, la Culture et le Partage pour Tous</h1>
+      <p>Accompagnement scolaire, cours de français, ateliers culturels et bien-être. Un espace d'apprentissage et de convivialité au cœur de notre ville.</p>
+      <div class="hero-buttons">
+        <a href="#cours" class="btn btn-primary"><i class="fa-solid fa-book-open"></i> Découvrir nos cours</a>
+        <a href="#inscription" class="btn btn-secondary"><i class="fa-solid fa-pen-to-square"></i> Pré-inscription en ligne</a>
+      </div>
+      <div class="hero-info-bar">
+        <div class="info-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <strong>Notre Adresse</strong>
+            <span>2 Rue Ela Constantinide, 95190 Goussainville</span>
+          </div>
         </div>
+        <div class="info-item">
+          <i class="fa-solid fa-clock"></i>
+          <div>
+            <strong>Permanence et Cours</strong>
+            <span>En semaine et le Week-end</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Vie de l'association / Activités -->
+    <section id="activites" class="section section-alt">
+      <div class="section-title">
+        <h2>La Vie de l'Association</h2>
+        <p>Retrouvez nos événements majeurs, nos sorties familiales et les moments forts de notre communauté.</p>
+      </div>
+
+      <div class="galerie-grid">
+        <!-- Événement 1 : Inauguration -->
+        <div class="galerie-item">
+          <img src="image/inauguration-du-local-de-l-association-avril-2015.jpg" alt="Inauguration de l'association en 2015">
+          <div class="galerie-overlay">
+            <h4>Inauguration (2015)</h4>
+            <p>Lancement officiel du local de l'association</p>
+          </div>
+        </div>
+
+        <!-- Événement 2 : Petits Déjeuners -->
+        <div class="galerie-item">
+          <img src="image/petits-déjeuner-participatifs.jpg" alt="Petits déjeuners participatifs">
+          <div class="galerie-overlay">
+            <h4>Petits Déjeuners Participatifs</h4>
+            <p>Moment d'échange et de convivialité entre habitants</p>
+          </div>
+        </div>
+
+        <!-- Événement 3 : Parc Saint Paul -->
+        <div class="galerie-item">
+          <img src="image/sorties-familiales-parc-d-attraction.jpg" alt="Sortie au Parc Saint Paul">
+          <div class="galerie-overlay">
+            <h4>Sortie au Parc Saint Paul</h4>
+            <p>Journée récréative et joyeuse pour les familles</p>
+          </div>
+        </div>
+
+        <!-- Événement 4 : Groupes de parole -->
+        <div class="galerie-item">
+          <img src="image/Groupes-de-parole-avec-les-psychologues-2.jpg" alt="Groupes de parole avec psychologues">
+          <div class="galerie-overlay">
+            <h4>Groupes de Parole</h4>
+            <p>Ateliers d'écoute et d'échange accompagnés par des psychologues</p>
+          </div>
+        </div>
+
+        <!-- Événement 5 : Périscolaire -->
+        <div class="galerie-item">
+          <img src="image/activités-périscolaires-pour-enfants-ecoles-primaires.jpg" alt="Activités périscolaires">
+          <div class="galerie-overlay">
+            <h4>Activités Périscolaires</h4>
+            <p>Ateliers ludiques et éducatifs pour les enfants des écoles primaires</p>
+          </div>
+        </div>
+
+        <!-- Événement 6 : Droits des Femmes -->
+        <div class="galerie-item">
+          <img src="image/journée-internationale-des-droits-des-femmes-5.jpg" alt="Journée internationale des droits des femmes">
+          <div class="galerie-overlay">
+            <h4>Journée des Droits des Femmes</h4>
+            <p>Rencontres, débats et célébration le 8 Mars</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Nos Cours & Programmes -->
-        <section id="cours" class="section">
-            <div class="section-title">
-                <h2>Nos Programmes d'Accompagnement</h2>
-                <p>Des formules adaptées à chaque tranche d'âge pour favoriser l'épanouissement et la réussite.</p>
+    <!-- Nos Cours & Programmes -->
+    <section id="cours" class="section">
+      <div class="section-title">
+        <h2>Nos Cours & Ateliers</h2>
+        <p>Des activités variées pour les enfants, les jeunes et les adultes.</p>
+      </div>
+
+      <div class="grille-cours">
+        <!-- Cours 1 : Français -->
+        <div class="carte-cours">
+          <div class="card-image">
+            <img src="image/cours-de-francais.jpg" alt="Cours de français">
+            <span class="card-badge badge-adultes">Adultes</span>
+          </div>
+          <div class="card-body">
+            <h3><i class="fa-solid fa-language"></i> Cours de Français</h3>
+            <p>Des cours bienveillants pour accompagner les adultes dans l'apprentissage et le perfectionnement de la langue française.</p>
+            <div class="planning-box">
+              <p><strong><i class="fa-solid fa-calendar-days"></i> Horaires :</strong></p>
+              <ul>
+                <li><strong>En journée :</strong> 9h00 - 11h00 & 14h00 - 16h00</li>
+                <li><strong>En soirée (Mardi & Vendredi) :</strong> 19h15 - 20h15</li>
+              </ul>
             </div>
-
-            <div class="grille-cours">
-                <!-- Carte 1 -->
-                <div class="carte-cours">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="Cours de français pour adultes">
-                        <span class="card-badge badge-adultes">Adultes</span>
-                    </div>
-                    <div class="card-body">
-                        <h3><i class="fa-solid fa-language"></i> Cours de français pour Adultes</h3>
-                        <p>Des cours bienveillants dispensés pour accompagner les adultes dans l'apprentissage et le perfectionnement de la langue française.</p>
-                        <ul class="details-list">
-                            <li><i class="fa-solid fa-check"></i> Expression orale et écrite</li>
-                            <li><i class="fa-solid fa-check"></i> Autonomie dans les démarches</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Carte 2 -->
-                <div class="carte-cours">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=600&q=80" alt="Aide aux devoirs scolaire">
-                        <span class="card-badge badge-jeunes">Scolaires</span>
-                    </div>
-                    <div class="card-body">
-                        <h3><i class="fa-solid fa-user-graduate"></i> Aide aux devoirs scolaire collective</h3>
-                        <p>Un accompagnement méthodique en petit groupe pour faire ses devoirs et consolider les bases.</p>
-                        <div class="planning-box">
-                            <p><strong><i class="fa-solid fa-calendar-days"></i> Lundi, Mardi, Jeudi, Vendredi :</strong></p>
-                            <ul>
-                                <li><strong>Primaires :</strong> 17h00 - 18h00</li>
-                                <li><strong>Collégiens :</strong> 18h00 - 19h00</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Carte 3 -->
-                <div class="carte-cours">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=600&q=80" alt="Cours de Maths et Physique">
-                        <span class="card-badge badge-sciences">Sciences</span>
-                    </div>
-                    <div class="card-body">
-                        <h3><i class="fa-solid fa-atom"></i> Maths et Physique individuels</h3>
-                        <p>Un suivi personnalisé et ciblé pour surmonter les difficultés en sciences et réussir ses examens.</p>
-                        <div class="planning-box">
-                            <p><strong><i class="fa-solid fa-clock"></i> Le Dimanche :</strong></p>
-                            <ul>
-                                <li><strong>Cours individuels :</strong> de 9h00 à 14h00.</li>
-                                <li><strong>Réservation :</strong>  Réserver votre créneau dès maintenant !</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Vie de l'association / Activités -->
-        <section id="activites" class="section section-alt">
-            <div class="section-title">
-                <h2>La Vie de l'Association</h2>
-                <p>Découvrez les activités, les sorties culturelles et la convivialité qui font la force de Mosaïque Citoyenne.</p>
-            </div>
-
-            <div class="galerie-grid">
-                <div class="galerie-item">
-                    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80" alt="Activités associatives">
-                    <div class="galerie-overlay">
-                        <h4>Ateliers Conviviaux</h4>
-                        <p>Partage et rencontres entre membres</p>
-                    </div>
-                </div>
-                <div class="galerie-item">
-                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Sorties éducatives">
-                    <div class="galerie-overlay">
-                        <h4>Accompagnement Éducatif</h4>
-                        <p>Des bénévoles engagés pour la réussite</p>
-                    </div>
-                </div>
-                <div class="galerie-item">
-                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80" alt="Événements de quartier">
-                    <div class="galerie-overlay">
-                        <h4>Événements Citoyens</h4>
-                        <p>Une présence active à Goussainville</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Formulaire d'inscription -->
-        <section id="inscription" class="section">
-            <div class="form-container">
-                <div class="form-header">
-                    <h2>Formulaire de Pré-inscription</h2>
-                    <p>Remplissez le formulaire ci-dessous pour réserver une place. Notre équipe vous recontactera très rapidement.</p>
-                </div>
-
-                <form id="formInscription">
-                    <div class="form-grid">
-                        <div class="groupe-champ">
-                            <label for="nom"><i class="fa-solid fa-user"></i> Nom et Prénom :</label>
-                            <input type="text" id="nom" required placeholder="Ex: Jean Dupont">
-                        </div>
-
-                        <div class="groupe-champ">
-                            <label for="email"><i class="fa-solid fa-envelope"></i> Adresse Email :</label>
-                            <input type="email" id="email" required placeholder="Ex: jean.dupont@email.com">
-                        </div>
-                    </div>
-
-                    <div class="groupe-champ">
-                        <label for="cours"><i class="fa-solid fa-book"></i> Choisissez le programme souhaité :</label>
-                        <select id="cours" required>
-                            <option value="">-- Sélectionnez une formule --</option>
-                            <option value="francais">Français pour adultes</option>
-                            <option value="devoirs-primaire">Aide aux devoirs - Primaire (Lu/Ma/Je/Ve 17h-18h)</option>
-                            <option value="devoirs-college">Aide aux devoirs - Collège (Lu/Ma/Je/Ve 18h-19h)</option>
-                            <option value="sciences-dimanche">Maths & Physique - Cours individuel (Dimanche 9h-14h)</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" class="bouton-valider"><i class="fa-solid fa-paper-plane"></i> Envoyer ma demande d'inscription</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer Pro -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <div class="logo footer-logo">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <span>Mosaïque <strong>Citoyenne</strong></span>
-                </div>
-                <p>Association éducative et sociale engagée pour la réussite de tous à Goussainville.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Contact & Adresse</h4>
-                <p><i class="fa-solid fa-location-dot"></i> 2 RUE ELA CONSTANTINIDE<br>95190 Goussainville</p>
-            </div>
-            <div class="footer-col">
-                <h4>Soutien Scolaire</h4>
-                <p><i class="fa-solid fa-clock"></i> Primaire : 17h-18h<br><i class="fa-solid fa-clock"></i> Collège : 18h-19h<br><i class="fa-solid fa-calendar"></i> Dimanche : 9h-14h</p>
-            </div>
+          </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Mosaïque Citoyenne - Tous droits réservés.</p>
-        </div>
-    </footer>
 
-    <script src="script.js"></script>
+        <!-- Cours 2 : Soutien Scolaire -->
+        <div class="carte-cours">
+          <div class="card-image">
+            <img src="image/soutient-enfant.jpg" alt="Soutien scolaire enfants">
+            <span class="card-badge badge-jeunes">Scolaires</span>
+          </div>
+          <div class="card-body">
+            <h3><i class="fa-solid fa-user-graduate"></i> Soutien Scolaire</h3>
+            <p>Accompagnement méthodique pour la réussite scolaire des élèves en semaine.</p>
+            <div class="planning-box">
+              <p><strong><i class="fa-solid fa-calendar-days"></i> Lundi, Mardi, Jeudi & Vendredi :</strong></p>
+              <ul>
+                <li><strong>Primaires :</strong> 17h00 - 18h00</li>
+                <li><strong>Collégiens :</strong> 18h00 - 19h00</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cours 3 : Cours de Sciences / Maths -->
+        <div class="carte-cours">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=600&q=80" alt="Cours de Sciences et Maths">
+            <span class="card-badge badge-sciences">Sciences</span>
+          </div>
+          <div class="card-body">
+            <h3><i class="fa-solid fa-calculator"></i> Cours de Maths & Sciences</h3>
+            <p>Soutien ciblé et suivi personnalisé individuel pour surmonter les difficultés en sciences.</p>
+            <div class="planning-box">
+              <p><strong><i class="fa-solid fa-calendar-days"></i> Le Samedi :</strong></p>
+              <ul>
+                <li><strong>Cours individuel de mathématiques</strong></li>
+                <li><strong>Uniquement sous inscriptions</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cours 4 : Cours de Saz -->
+        <div class="carte-cours">
+          <div class="card-image">
+            <img src="image/cours-de-saz.jpg" alt="Cours de Saz">
+            <span class="card-badge badge-sciences">Culture</span>
+          </div>
+          <div class="card-body">
+            <h3><i class="fa-solid fa-music"></i> Cours de Saz</h3>
+            <p>Atelier d'initiation et de perfectionnement à la pratique du Saz, instrument traditionnel au cœur de notre patrimoine culturel.</p>
+            <ul class="details-list">
+              <li><i class="fa-solid fa-check"></i> Pratique instrumentale</li>
+              <li><i class="fa-solid fa-check"></i> Ouvert aux débutants et initiés</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Cours 5 : Yoga -->
+        <div class="carte-cours">
+          <div class="card-image">
+            <img src="image/cours-de-yoga.jpg" alt="Cours de Yoga">
+            <span class="card-badge badge-adultes">Bien-être</span>
+          </div>
+          <div class="card-body">
+            <h3><i class="fa-solid fa-spa"></i> Cours de Yoga</h3>
+            <p>Séances de relaxation et d'entretien corporel pour se détendre et prendre soin de sa santé.</p>
+            <div class="planning-box">
+              <p><strong><i class="fa-solid fa-calendar-days"></i> Horaires & Lieu :</strong></p>
+              <ul>
+                <li><strong>Jeudi à 13h30</strong> dans la Salle Colucci</li>
+                <li><strong>Ouvert à tous</strong> (au moyen d'une participation)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulaire d'inscription -->
+    <section id="inscription" class="section">
+      <div class="form-container">
+        <div class="form-header">
+          <h2>Formulaire de Pré-inscription</h2>
+          <p>Sélectionnez d'abord le cours souhaité, puis complétez les informations demandées.</p>
+        </div>
+
+        <form id="formInscription">
+          <!-- STEP 1 : Choix du cours -->
+          <div class="groupe-champ">
+            <label for="cours"><i class="fa-solid fa-book"></i> 1. Choisissez le programme souhaité :</label>
+            <select id="cours" name="chosen_course" required>
+              <option value="">-- Sélectionnez une activité --</option>
+              <option value="Soutien Scolaire - Primaires (Lu/Ma/Je/Ve 17h-18h)">Soutien Scolaire - Primaires (Lu/Ma/Je/Ve 17h-18h)</option>
+              <option value="Soutien Scolaire - Collégiens (Lu/Ma/Je/Ve 18h-19h)">Soutien Scolaire - Collégiens (Lu/Ma/Je/Ve 18h-19h)</option>
+              <option value="Maths & Sciences individuel (Samedi sur inscription)">Cours individuel de Maths & Sciences (Samedi sur inscription)</option>
+              <option value="Cours de Saz">Cours de Saz</option>
+              <option value="Français Adultes - Journée (9h-11h / 14h-16h)">Cours de Français - En journée (9h-11h / 14h-16h)</option>
+              <option value="Français Adultes - Soirée (Mardi/Vendredi 19h15-20h15)">Cours de Français - En soirée (Mardi/Vendredi 19h15-20h15)</option>
+              <option value="Yoga - Jeudi 13h30 (Salle Colucci)">Cours de Yoga - Jeudi 13h30 (Salle Colucci - Participation)</option>
+            </select>
+          </div>
+
+          <!-- STEP 2 : Informations personnelles (S'affiche dynamiquement) -->
+          <div id="champs-dynamiques" style="display: none; margin-top: 20px;">
+            <!-- Option A : Si cours ENFANT/JEUNE (Soutien, Maths, Saz) -->
+            <div id="section-enfant" style="display: none;">
+              <h3 style="margin-bottom: 15px; font-size: 1.1rem; color: #2c3e50;"><i class="fa-solid fa-child"></i> Informations sur l'élève</h3>
+              <div class="form-grid">
+                <div class="groupe-champ">
+                  <label for="nom_eleve"><i class="fa-solid fa-user-graduate"></i> Nom et Prénom de l'élève :</label>
+                  <input type="text" id="nom_eleve" name="student_name" placeholder="Ex: Lucas Dupont">
+                </div>
+                <div class="groupe-champ">
+                  <label for="classe_eleve"><i class="fa-solid fa-school"></i> Classe / Âge :</label>
+                  <input type="text" id="classe_eleve" name="student_class" placeholder="Ex: Classe de CM2 (10 ans)">
+                </div>
+              </div>
+
+              <h3 style="margin-top: 20px; margin-bottom: 15px; font-size: 1.1rem; color: #2c3e50;"><i class="fa-solid fa-user-shield"></i> Responsable légal</h3>
+              <div class="form-grid">
+                <div class="groupe-champ">
+                  <label for="nom_responsable"><i class="fa-solid fa-user"></i> Nom et Prénom du responsable :</label>
+                  <input type="text" id="nom_responsable" name="parent_name" placeholder="Ex: Marie Dupont">
+                </div>
+                <div class="groupe-champ">
+                  <label for="telephone_resp"><i class="fa-solid fa-phone"></i> Téléphone du responsable :</label>
+                  <input type="tel" id="telephone_resp" name="parent_phone" placeholder="Ex: 06 12 34 56 78">
+                </div>
+              </div>
+            </div>
+
+            <!-- Option B : Si cours ADULTE (Français, Yoga) -->
+            <div id="section-adulte" style="display: none;">
+              <h3 style="margin-bottom: 15px; font-size: 1.1rem; color: #2c3e50;"><i class="fa-solid fa-user"></i> Informations sur le participant</h3>
+              <div class="form-grid">
+                <div class="groupe-champ">
+                  <label for="nom_adulte"><i class="fa-solid fa-user"></i> Nom et Prénom de l'adulte :</label>
+                  <input type="text" id="nom_adulte" name="adult_name" placeholder="Ex: Marie Dupont">
+                </div>
+                <div class="groupe-champ">
+                  <label for="telephone_adulte"><i class="fa-solid fa-phone"></i> Numéro de Téléphone :</label>
+                  <input type="tel" id="telephone_adulte" name="adult_phone" placeholder="Ex: 06 12 34 56 78">
+                </div>
+              </div>
+            </div>
+
+            <!-- Champ Email Commun -->
+            <div class="groupe-champ" style="margin-top: 15px;">
+              <label for="email"><i class="fa-solid fa-envelope"></i> Adresse Email de contact :</label>
+              <input type="email" id="email" name="user_email" required placeholder="Ex: contact@email.com">
+            </div>
+
+            <!-- Remarques -->
+            <div class="groupe-champ" style="margin-top: 15px;">
+              <label for="message"><i class="fa-solid fa-comment"></i> Remarques / Précisions complémentaires :</label>
+              <textarea id="message" name="message" rows="3" placeholder="Précisez votre besoin, questions ou disponibilités..."></textarea>
+            </div>
+
+            <button type="submit" class="bouton-valider" style="margin-top: 20px;"><i class="fa-solid fa-paper-plane"></i> Envoyer ma demande d'inscription</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Pro -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <div class="logo footer-logo">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span>Mosaïque <strong>Citoyenne</strong></span>
+        </div>
+        <p>Association éducative, culturelle et sociale engagée pour la réussite et le vivre-ensemble à Goussainville.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact & Adresse</h4>
+        <p><i class="fa-solid fa-location-dot"></i> 2 RUE ELA CONSTANTINIDE<br>95190 Goussainville</p>
+      </div>
+      <div class="footer-col">
+        <h4>Horaires Clefs</h4>
+        <p>
+          <i class="fa-solid fa-clock"></i> Primaires : 17h-18h | Collège : 18h-19h<br>
+          <i class="fa-solid fa-spa"></i> Yoga : Jeudi 13h30 (Salle Colucci)<br>
+          <i class="fa-solid fa-calendar"></i> Samedi : Maths individuel sur inscription
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Mosaïque Citoyenne - Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
