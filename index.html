@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Site officiel de l'association Mosaïque Citoyenne. Découvrez nos cours, nos activités et rejoignez-nous !">
   <title>Mosaïque Citoyenne - Association Éducative à Goussainville</title>
-  
+
   <!-- Font Awesome pour les icônes -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
+
   <!-- Style CSS -->
   <link rel="stylesheet" href="style.css">
-  
+
   <!-- EmailJS SDK -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  
-  <!-- Fichier JavaScript (chargé avec defer) -->
+
+  <!-- Fichier JavaScript -->
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -43,7 +43,7 @@
     </div>
   </header>
 
-  <!-- Banner / Hero Section -->
+  <!-- Hero Section -->
   <section class="hero" id="presentation">
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -83,16 +83,14 @@
       </div>
 
       <div class="galerie-grid">
-        <!-- Événement 1 : Inauguration -->
         <div class="galerie-item">
           <img src="image/inauguration-du-local-de-l-association-avril-2015.jpg" alt="Inauguration de l'association en 2015">
           <div class="galerie-overlay">
-            <h4>Inauguration (2015)</h4>
+            <h4>Inauguration de l'association en 2015 </h4>
             <p>Lancement officiel du local de l'association</p>
           </div>
         </div>
 
-        <!-- Événement 2 : Petits Déjeuners -->
         <div class="galerie-item">
           <img src="image/petits-déjeuner-participatifs.jpg" alt="Petits déjeuners participatifs">
           <div class="galerie-overlay">
@@ -101,7 +99,6 @@
           </div>
         </div>
 
-        <!-- Événement 3 : Parc Saint Paul -->
         <div class="galerie-item">
           <img src="image/sorties-familiales-parc-d-attraction.jpg" alt="Sortie au Parc Saint Paul">
           <div class="galerie-overlay">
@@ -110,7 +107,6 @@
           </div>
         </div>
 
-        <!-- Événement 4 : Groupes de parole -->
         <div class="galerie-item">
           <img src="image/Groupes-de-parole-avec-les-psychologues-2.jpg" alt="Groupes de parole avec psychologues">
           <div class="galerie-overlay">
@@ -119,7 +115,6 @@
           </div>
         </div>
 
-        <!-- Événement 5 : Périscolaire -->
         <div class="galerie-item">
           <img src="image/activités-périscolaires-pour-enfants-ecoles-primaires.jpg" alt="Activités périscolaires">
           <div class="galerie-overlay">
@@ -128,7 +123,6 @@
           </div>
         </div>
 
-        <!-- Événement 6 : Droits des Femmes -->
         <div class="galerie-item">
           <img src="image/journée-internationale-des-droits-des-femmes-5.jpg" alt="Journée internationale des droits des femmes">
           <div class="galerie-overlay">
@@ -147,7 +141,6 @@
       </div>
 
       <div class="grille-cours">
-        <!-- Cours 1 : Français -->
         <div class="carte-cours">
           <div class="card-image">
             <img src="image/cours-de-francais.jpg" alt="Cours de français">
@@ -166,7 +159,6 @@
           </div>
         </div>
 
-        <!-- Cours 2 : Soutien Scolaire -->
         <div class="carte-cours">
           <div class="card-image">
             <img src="image/soutient-enfant.jpg" alt="Soutien scolaire enfants">
@@ -185,7 +177,6 @@
           </div>
         </div>
 
-        <!-- Cours 3 : Cours de Sciences / Maths -->
         <div class="carte-cours">
           <div class="card-image">
             <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=600&q=80" alt="Cours de Sciences et Maths">
@@ -204,7 +195,6 @@
           </div>
         </div>
 
-        <!-- Cours 4 : Cours de Saz -->
         <div class="carte-cours">
           <div class="card-image">
             <img src="image/cours-de-saz.jpg" alt="Cours de Saz">
@@ -220,7 +210,6 @@
           </div>
         </div>
 
-        <!-- Cours 5 : Yoga -->
         <div class="carte-cours">
           <div class="card-image">
             <img src="image/cours-de-yoga.jpg" alt="Cours de Yoga">
@@ -241,81 +230,82 @@
       </div>
     </section>
 
-    <!-- Section Formulaire d'Inscription Centrée -->
-        <section id="inscription" class="section-inscription">
-            <div class="form-header">
-                <h2>Formulaire d'Inscription</h2>
-                <p>Veuillez remplir vos coordonnées ci-dessous pour effectuer une demande d'inscription.</p>
+    <!-- Section Formulaire d'Inscription -->
+    <section id="inscription" class="section-inscription">
+      <div class="form-header">
+        <h2>Formulaire d'Inscription</h2>
+        <p>Veuillez remplir vos coordonnées ci-dessous pour effectuer une demande d'inscription.</p>
+      </div>
+
+      <div class="form-container">
+        <form action="#" method="POST">
+          
+          <!-- Coordonnées -->
+          <fieldset class="form-fieldset">
+            <legend><i class="fa-solid fa-user"></i> Vos coordonnées</legend>
+            <div class="form-grid">
+              <div class="groupe-champ">
+                <label for="nom">Nom *</label>
+                <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+              </div>
+              <div class="groupe-champ">
+                <label for="prenom">Prénom *</label>
+                <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+              </div>
+              <div class="groupe-champ">
+                <label for="email">Adresse e-mail *</label>
+                <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+              </div>
+              <div class="groupe-champ">
+                <label for="telephone">Numéro de téléphone *</label>
+                <input type="tel" id="telephone" name="telephone" placeholder="06 00 00 00 00" required>
+              </div>
             </div>
+          </fieldset>
 
-            <div class="form-container">
-                <form action="#" method="POST">
-                    
-                    <!-- Coordonnées -->
-                    <fieldset class="form-fieldset">
-                        <legend><i class="fa-solid fa-user"></i> Vos coordonnées</legend>
-                        <div class="form-grid">
-                            <div class="groupe-champ">
-                                <label for="nom">Nom *</label>
-                                <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
-                            </div>
-                            <div class="groupe-champ">
-                                <label for="prenom">Prénom *</label>
-                                <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
-                            </div>
-                            <div class="groupe-champ">
-                                <label for="email">Adresse e-mail *</label>
-                                <input type="email" id="email" name="email" placeholder="votre@email.com" required>
-                            </div>
-                            <div class="groupe-champ">
-                                <label for="telephone">Numéro de téléphone *</label>
-                                <input type="tel" id="telephone" name="telephone" placeholder="06 00 00 00 00" required>
-                            </div>
-                        </div>
-                    </fieldset>
-
-                    <!-- Choix de l'activité -->
-                    <fieldset class="form-fieldset">
-                        <legend><i class="fa-solid fa-book-bookmark"></i> Choix de l'activité</legend>
-                        <div class="groupe-champ">
-                            <label for="cours-select">Sélectionnez le cours souhaité *</label>
-                            <select id="cours-select" name="cours" required>
-                                <option value="" disabled selected>Choisissez une option...</option>
-                                <option value="soutien">Soutien Scolaire</option>
-                                <option value="saz">Cours de Saz</option>
-                                <option value="langues">Ateliers Linguistiques</option>
-                            </select>
-                        </div>
-                    </fieldset>
-
-                    <!-- Section Enfant (Optionnelle) -->
-                    <fieldset class="form-fieldset form-fieldset-enfant">
-                        <legend><i class="fa-solid fa-child"></i> Information sur l'enfant (si inscription pour un mineur)</legend>
-                        <div class="form-grid">
-                            <div class="groupe-champ">
-                                <label for="nom-enfant">Nom de l'enfant</label>
-                                <input type="text" id="nom-enfant" name="nom_enfant" placeholder="Nom de l'enfant">
-                            </div>
-                            <div class="groupe-champ">
-                                <label for="prenom-enfant">Prénom de l'enfant</label>
-                                <input type="text" id="prenom-enfant" name="prenom_enfant" placeholder="Prénom de l'enfant">
-                            </div>
-                            <div class="groupe-champ">
-                                <label for="classe">Classe / Niveau</label>
-                                <input type="text" id="classe" name="classe" placeholder="Ex: 6ème, CM2...">
-                            </div>
-                        </div>
-                    </fieldset>
-
-                    <button type="submit" class="bouton-valider">
-                        <i class="fa-solid fa-paper-plane"></i> Envoyer ma demande
-                    </button>
-                </form>
+          <!-- Choix de l'activité -->
+          <fieldset class="form-fieldset">
+            <legend><i class="fa-solid fa-book-bookmark"></i> Choix de l'activité</legend>
+            <div class="groupe-champ">
+              <label for="cours-select">Sélectionnez le cours souhaité *</label>
+              <select id="cours-select" name="cours" required>
+                <option value="" disabled selected>Choisissez une option...</option>
+                <option value="soutien">Soutien Scolaire</option>
+                <option value="saz">Cours de Saz</option>
+                <option value="langues">Ateliers Linguistiques</option>
+                <option value="yoga">Cours de Yoga</option>
+              </select>
             </div>
-        </section>
-    </main>
+          </fieldset>
 
-     <!-- Footer Pro -->
+          <!-- Section Enfant (Optionnelle) -->
+          <fieldset class="form-fieldset form-fieldset-enfant">
+            <legend><i class="fa-solid fa-child"></i> Information sur l'enfant (si inscription pour un mineur)</legend>
+            <div class="form-grid">
+              <div class="groupe-champ">
+                <label for="nom-enfant">Nom de l'enfant</label>
+                <input type="text" id="nom-enfant" name="nom_enfant" placeholder="Nom de l'enfant">
+              </div>
+              <div class="groupe-champ">
+                <label for="prenom-enfant">Prénom de l'enfant</label>
+                <input type="text" id="prenom-enfant" name="prenom_enfant" placeholder="Prénom de l'enfant">
+              </div>
+              <div class="groupe-champ">
+                <label for="classe">Classe / Niveau</label>
+                <input type="text" id="classe" name="classe" placeholder="Ex: 6ème, CM2...">
+              </div>
+            </div>
+          </fieldset>
+
+          <button type="submit" class="bouton-valider">
+            <i class="fa-solid fa-paper-plane"></i> Envoyer ma demande
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
   <footer>
     <div class="footer-container">
       <div class="footer-col">
@@ -345,4 +335,3 @@
 
 </body>
 </html>
-          
