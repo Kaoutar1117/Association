@@ -1,4 +1,4 @@
-/* --- Reset & Base --- */
+/* --- Reset & Structure Générale --- */
 * {
     margin: 0;
     padding: 0;
@@ -15,12 +15,12 @@ body {
     overflow-x: hidden;
 }
 
-img, iframe, video {
+img {
     max-width: 100%;
     height: auto;
 }
 
-/* --- Header / Navigation --- */
+/* --- Header & Navigation --- */
 header {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -73,7 +73,7 @@ nav ul li a {
     text-decoration: none;
     color: #475569;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1rem;
     transition: color 0.3s;
 }
 
@@ -130,21 +130,20 @@ nav ul li a:hover {
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 600;
-    letter-spacing: 0.5px;
     display: inline-block;
     margin-bottom: 20px;
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .hero h1 {
-    font-size: 3.2rem;
+    font-size: 3rem;
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 20px;
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     color: #cbd5e1;
     margin-bottom: 35px;
     max-width: 750px;
@@ -229,7 +228,7 @@ nav ul li a:hover {
     color: #94a3b8;
 }
 
-/* --- Layout Général --- */
+/* --- Disposition des Sections --- */
 main {
     max-width: 1200px;
     margin: 0 auto;
@@ -257,7 +256,7 @@ main {
     font-size: 1.1rem;
 }
 
-/* --- Section Galerie --- */
+/* --- Galerie --- */
 .galerie-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -303,7 +302,7 @@ main {
     color: #cbd5e1;
 }
 
-/* --- Grille des Cours --- */
+/* --- Cartes des Cours --- */
 .grille-cours {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -415,12 +414,12 @@ main {
     padding-left: 10px;
 }
 
-/* --- Section Inscription Centrée --- */
+/* --- Style du Formulaire --- */
 #inscription, 
 .section-inscription {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     width: 100%;
     max-width: 800px;
@@ -458,12 +457,11 @@ main {
 }
 
 .form-fieldset {
-    border: 1px solid #cbd5e1 !important;
-    border-radius: 16px !important;
-    padding: 24px !important;
-    margin-bottom: 25px !important;
+    border: 1px solid #cbd5e1;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 25px;
     background-color: #ffffff;
-    -webkit-appearance: none;
 }
 
 .form-fieldset legend {
@@ -483,9 +481,9 @@ main {
 }
 
 .form-fieldset-enfant {
-    border: 1.5px solid #2563eb !important;
-    border-radius: 16px !important;
-    background-color: #f0f7ff !important;
+    border: 1.5px solid #2563eb;
+    border-radius: 16px;
+    background-color: #f0f7ff;
 }
 
 .form-fieldset-enfant legend {
@@ -607,7 +605,7 @@ footer {
     font-size: 0.85rem;
 }
 
-/* --- Responsive (< 768px) --- */
+/* --- Adaptation Mobile --- */
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column;
