@@ -1,15 +1,1 @@
-<img width="3264" height="2448" alt="sorties-familiales-parc-d-attraction" src="https://github.com/user-attachments/assets/372e5888-1f5a-4cb6-815b-baa9848f81b5" />
-<img width="4032" height="3024" alt="petits-déjeuner-participatifs" src="https://github.com/user-attachments/assets/f86804bf-412f-4fb5-a3b5-b609d4566e41" />
-<img width="4032" height="3024" alt="journée-internationale-des-droits-des-femmes-5" src="https://github.com/user-attachments/assets/e3fc7754-16bb-4f6e-9e9c-5637bf6001d2" />
-<img width="3088" height="2320" alt="journée-internationale-des-droits-des-femmes-4" src="https://github.com/user-attachments/assets/fe373099-18f3-40ed-9258-ccf24a7f39a8" />
-<img width="4032" height="3024" alt="journée-internationale-des-droits-des-femmes-3" src="https://github.com/user-attachments/assets/8fb7803c-06e4-4569-9a23-af720eee21a7" />
-<img width="1632" height="918" alt="journée-internationale-des-droits-des-femmes-2" src="https://github.com/user-attachments/assets/b48b1635-5501-4221-8661-b8db59ee4882" />
-<img width="1632" height="918" alt="journée-internationale-des-droits-des-femmes-1" src="https://github.com/user-attachments/assets/04796b22-d9dc-4f97-89d8-3c45d6921daa" />
-<img width="1584" height="896" alt="inauguration-du-local-de-l-association-avril-2015" src="https://github.com/user-attachments/assets/49d85f82-6936-4164-a044-569316c7bdc2" />
-<img width="4032" height="3024" alt="Groupes-de-parole-avec-les-psychologues-2" src="https://github.com/user-attachments/assets/e74772b1-56ef-4e0b-81c8-39e9461c21ed" />
-<img width="3264" height="2448" alt="Groupes-de-parole-avec-les-psychologues-1" src="https://github.com/user-attachments/assets/d5952690-5e05-4e37-9165-faea0bcd2e9a" />
-<img width="1600" height="1200" alt="cours-de-yoga" src="https://github.com/user-attachments/assets/87dfad77-6233-4a29-abaf-396e4aeebb37" />
-<img width="4032" height="3024" alt="cours-de-Saz" src="https://github.com/user-attachments/assets/1675deb0-5ce2-4fdc-9443-873bd612ff1a" />
-<img width="4032" height="3024" alt="cours-de-francais" src="https://github.com/user-attachments/assets/3ff80996-8b3d-4360-ad4a-bc201a7c9f06" />
-<img width="3264" height="2448" alt="activités-périscolaires-pour-enfants-ecoles-primaires" src="https://github.com/user-attachments/assets/f96ee4cd-1d26-47dd-ae97-5ab46a9fbbf2" />
-<img width="2560" height="1707" alt="soutient-enfant" src="https://github.com/user-attachments/assets/cdec59b5-6094-4b8d-a281-246ce5a8b5cc" />
+
