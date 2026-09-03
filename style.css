@@ -624,3 +624,67 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* ==========================================
+   DESIGN DU BOUTON MODE SOMBRE (THEME TOGGLE)
+   ========================================== */
+
+.btn-theme-toggle {
+    /* Style de base et dimensions */
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    
+    /* Centrage de l'icône */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    
+    /* Couleurs en mode clair */
+    background-color: #f1f5f9;
+    color: #0f172a;
+    border-color: #e2e8f0;
+    
+    /* Effets et ombres */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Effet au survol (Hover) */
+.btn-theme-toggle:hover {
+    transform: scale(1.1) rotate(12deg);
+    background-color: #e2e8f0;
+    color: #2563eb;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+/* Effet au clic (Active) */
+.btn-theme-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Focus pour l'accessibilité au clavier */
+.btn-theme-toggle:focus-visible {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+}
+
+/* ------------------------------------------
+   Apparence du bouton en MODE SOMBRE
+   ------------------------------------------ */
+body.dark-mode .btn-theme-toggle {
+    background-color: #1e293b;
+    color: #fbbf24; /* Couleur jaune soleil */
+    border-color: #334155;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .btn-theme-toggle:hover {
+    background-color: #334155;
+    color: #f59e0b;
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.2);
+}
