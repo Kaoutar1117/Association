@@ -1,19 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
+  
+  const PUBLIC_KEY = "3O5tNY2-qMHJPfTia";
+  const SERVICE_ID = "service_uvn7z8j";
+  const TEMPLATE_ID = "template_swh41ll";
 
-  // 1. INITIALISATION EMAILJS
+  // 1. Initialisation sécurisée d'EmailJS
   if (typeof emailjs !== "undefined") {
     try {
-      emailjs.init("3O5tNY2-qMHJPfTia");
+      emailjs.init(PUBLIC_KEY);
     } catch (e) {
       console.warn("Erreur d'initialisation EmailJS :", e);
     }
   }
 
-  // 2. GESTION DU MODE SOMBRE (DARK MODE)
+  // 2. Gestion du Mode Sombre (Dark Mode)
   const themeToggleBtn = document.getElementById('theme-toggle');
   const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
 
-  // Restauration du thème enregistré
   try {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
@@ -24,10 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   } catch (e) {
-    console.warn("localStorage indisponible.");
+    console.warn("localStorage non accessible.");
   }
 
-  // Événement clic sur le bouton
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
@@ -46,12 +48,12 @@ document.addEventListener("DOMContentLoaded", function () {
       try {
         localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
       } catch (e) {
-        console.warn("Impossible de sauvegarder le thème.");
+        console.warn("Impossible de sauvegarder dans localStorage.");
       }
     });
   }
 
-  // 3. SOUMISSION DU FORMULAIRE VIA EMAILJS
+  // 3. Soumission du Formulaire d'Inscription
   const formInscription = document.getElementById("formInscription");
   const btnSubmit = document.getElementById("btnSubmit");
 
@@ -65,19 +67,15 @@ document.addEventListener("DOMContentLoaded", function () {
         btnSubmit.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Envoi en cours...';
       }
 
-      const serviceID = "service_uvn7z8j";
-      const templateID = "template_swh41ll";
-      const PUBLIC_KEY = "3O5tNY2-qMHJPfTia";
-
       emailjs
-        .sendForm(serviceID, templateID, formInscription, PUBLIC_KEY)
+        .sendForm(SERVICE_ID, TEMPLATE_ID, formInscription, PUBLIC_KEY)
         .then(() => {
           alert("Votre demande d'inscription a bien été envoyée !");
           formInscription.reset();
         })
         .catch((error) => {
-          console.error("Erreur d'envoi :", error);
-          alert("Une erreur s'est produite lors de l'envoi.");
+          console.error("Erreur lors de l'envoi EmailJS :", error);
+          alert("Une erreur s'est produite lors de l'envoi. Vérifiez vos identifiants EmailJS ou réessayez plus tard.");
         })
         .finally(() => {
           if (btnSubmit) {
