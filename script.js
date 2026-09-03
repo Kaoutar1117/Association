@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // ==========================================
   const PUBLIC_KEY = "3O5tNY2-qMHJPfTia";
   const SERVICE_ID = "service_uvn7z8j";
-  const TEMPLATE_ID = "template_swh41ll";
+  const TEMPLATE_ID = "template_p5xka8u";
 
   // Initialisation sécurisée
   if (typeof emailjs !== "undefined") {
