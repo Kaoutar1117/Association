@@ -99,3 +99,47 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
+
+  // 1. Lecture sécurisée du thème enregistré
+  try {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+      if (themeIcon) {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      }
+    }
+  } catch (e) {
+    console.warn("localStorage non accessible dans cet environnement.");
+  }
+
+  // 2. Basculement au clic
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDarkMode = document.body.classList.contains('dark-mode');
+
+      // Changement de l'icône
+      if (themeIcon) {
+        if (isDarkMode) {
+          themeIcon.classList.remove('fa-moon');
+          themeIcon.classList.add('fa-sun');
+        } else {
+          themeIcon.classList.remove('fa-sun');
+          themeIcon.classList.add('fa-moon');
+        }
+      }
+
+      // 3. Sauvegarde sécurisée
+      try {
+        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+      } catch (e) {
+        console.warn("Impossible de sauvegarder dans localStorage.");
+      }
+    });
+  }
+});
