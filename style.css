@@ -1,6 +1,4 @@
-/* --- Style Pro & Élégant pour Mosaïque Citoyenne --- */
-
-/* Reset & Base */
+/* --- Reset & Base --- */
 * {
     margin: 0;
     padding: 0;
@@ -14,29 +12,15 @@ body {
     color: #1e293b;
     line-height: 1.6;
     width: 100%;
-    overflow-x: hidden; /* Empêche le défilement horizontal indésirable */
+    overflow-x: hidden;
 }
 
-/* Eléments multimédias flexibles */
 img, iframe, video {
     max-width: 100%;
     height: auto;
 }
 
-/* Layouts Conteneurs */
-.mon-conteneur,
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.container {
-    display: flex;
-    flex-direction: row;
-}
-
-/* --- Navigation Fixe --- */
+/* --- Header / Navigation --- */
 header {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -245,7 +229,7 @@ nav ul li a:hover {
     color: #94a3b8;
 }
 
-/* --- Main Layout --- */
+/* --- Layout Général --- */
 main {
     max-width: 1200px;
     margin: 0 auto;
@@ -273,7 +257,53 @@ main {
     font-size: 1.1rem;
 }
 
-/* --- Grille des Cours avec Images --- */
+/* --- Section Galerie --- */
+.galerie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.galerie-item {
+    position: relative;
+    height: 250px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.galerie-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.galerie-item:hover img {
+    transform: scale(1.08);
+}
+
+.galerie-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(15, 23, 42, 0.85));
+    color: white;
+}
+
+.galerie-overlay h4 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.galerie-overlay p {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+/* --- Grille des Cours --- */
 .grille-cours {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -371,7 +401,7 @@ main {
     background: #f1f5f9;
     padding: 15px;
     border-radius: 10px;
-    margin-top: auto; /* Aligne le planning en bas de la carte */
+    margin-top: auto;
     font-size: 0.88rem;
 }
 
@@ -385,61 +415,36 @@ main {
     padding-left: 10px;
 }
 
-/* --- Galerie Photo (Vie Asso) --- */
-.galerie-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.galerie-item {
-    position: relative;
-    height: 250px;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-
-.galerie-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s;
-}
-
-.galerie-item:hover img {
-    transform: scale(1.08);
-}
-
-.galerie-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px;
-    background: linear-gradient(transparent, rgba(15, 23, 42, 0.85));
-    color: white;
-}
-
-.galerie-overlay h4 {
-    font-size: 1.1rem;
-    margin-bottom: 4px;
-}
-
-.galerie-overlay p {
-    font-size: 0.85rem;
-    color: #cbd5e1;
-}
-
-/* --- Formulaire d'inscription (Centré) --- */
-
+/* --- Section Inscription Centrée --- */
 #inscription, 
 .section-inscription {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
     justify-content: center;
     width: 100%;
+    max-width: 800px;
+    margin: 0 auto 80px auto;
+    padding: 0 20px;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.form-header h2 {
+    font-size: 2.2rem;
+    color: #0f172a;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.form-header p {
+    color: #64748b;
+    font-size: 1.1rem;
+    max-width: 600px;
     margin: 0 auto;
 }
 
@@ -450,22 +455,15 @@ main {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
     border: 1px solid #e2e8f0;
     width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.form-header {
-    text-align: center;
-    margin-bottom: 30px;
 }
 
 .form-fieldset {
-    border: 1px solid #cbd5e1;
-    padding: 24px;
-    margin-bottom: 25px;
-    border-radius: 12px;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 16px !important;
+    padding: 24px !important;
+    margin-bottom: 25px !important;
     background-color: #ffffff;
-    transition: all 0.3s ease;
+    -webkit-appearance: none;
 }
 
 .form-fieldset legend {
@@ -485,8 +483,9 @@ main {
 }
 
 .form-fieldset-enfant {
-    border: 1.5px solid #2563eb;
-    background-color: #f0f7ff;
+    border: 1.5px solid #2563eb !important;
+    border-radius: 16px !important;
+    background-color: #f0f7ff !important;
 }
 
 .form-fieldset-enfant legend {
@@ -518,11 +517,6 @@ main {
     text-align: left;
 }
 
-.groupe-champ label i {
-    color: #2563eb;
-    margin-right: 6px;
-}
-
 .groupe-champ input, 
 .groupe-champ select {
     width: 100%;
@@ -543,8 +537,7 @@ main {
     box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
 }
 
-.bouton-valider,
-.btn-block {
+.bouton-valider {
     background: #2563eb;
     color: #ffffff;
     padding: 16px 30px;
@@ -564,19 +557,10 @@ main {
     gap: 10px;
 }
 
-.bouton-valider:hover,
-.btn-block:hover {
+.bouton-valider:hover {
     background: #1d4ed8;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
-}
-
-.bouton-valider:disabled,
-.btn-block:disabled {
-    background: #94a3b8;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
 }
 
 /* --- Footer --- */
@@ -623,23 +607,11 @@ footer {
     font-size: 0.85rem;
 }
 
-/* --- Adaptations Mobile / Responsive (< 768px) --- */
+/* --- Responsive (< 768px) --- */
 @media (max-width: 768px) {
-    body {
-        font-size: 16px;
-    }
-
-    .container {
-        flex-direction: column;
-    }
-
     .header-container {
         flex-direction: column;
         gap: 15px;
-    }
-
-    nav ul li a {
-        font-size: 0.85rem;
     }
 
     .hero h1 {
@@ -649,18 +621,8 @@ footer {
     .form-container {
         padding: 20px 15px;
     }
-    
-    .form-fieldset {
-        padding: 15px;
-    }
 
     .form-grid {
         grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
-    .bouton-valider,
-    .btn-block {
-        max-width: 100%;
     }
 }
