@@ -6,7 +6,7 @@
   <meta name="description" content="Site officiel de l'association Mosaïque Citoyenne. Découvrez nos cours, nos activités et rejoignez-nous !">
   <title>Mosaïque Citoyenne - Association Éducative à Goussainville</title>
 
-  <!-- Font Awesome pour les icônes -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Google Fonts -->
@@ -20,7 +20,7 @@
   <!-- EmailJS SDK -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
-  <!-- Fichier JavaScript -->
+  <!-- Script JS -->
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -38,6 +38,12 @@
           <li><a href="#activites">Vie associative</a></li>
           <li><a href="#cours">Nos Cours</a></li>
           <li><a href="#inscription" class="btn-nav">S'inscrire</a></li>
+          <!-- Bouton Mode Sombre -->
+          <li>
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Changer le thème">
+              <i class="fa-solid fa-moon"></i>
+            </button>
+          </li>
         </ul>
       </nav>
     </div>
@@ -75,7 +81,7 @@
 
   <!-- Main Content -->
   <main>
-    <!-- Vie de l'association / Activités -->
+    <!-- Activités -->
     <section id="activites" class="section section-alt">
       <div class="section-title">
         <h2>La Vie de l'Association</h2>
@@ -86,7 +92,7 @@
         <div class="galerie-item">
           <img src="image/inauguration-du-local-de-l-association-avril-2015.jpg" alt="Inauguration de l'association en 2015">
           <div class="galerie-overlay">
-            <h4>Inauguration de l'association en 2015 </h4>
+            <h4>Inauguration (2015)</h4>
             <p>Lancement officiel du local de l'association</p>
           </div>
         </div>
@@ -133,7 +139,7 @@
       </div>
     </section>
 
-    <!-- Nos Cours & Programmes -->
+    <!-- Cours -->
     <section id="cours" class="section">
       <div class="section-title">
         <h2>Nos Cours & Ateliers</h2>
@@ -230,7 +236,7 @@
       </div>
     </section>
 
-    <!-- Section Formulaire d'Inscription -->
+    <!-- Inscription -->
     <section id="inscription" class="section-inscription">
       <div class="form-header">
         <h2>Formulaire d'Inscription</h2>
@@ -239,8 +245,6 @@
 
       <div class="form-container">
         <form action="#" method="POST">
-          
-          <!-- Coordonnées -->
           <fieldset class="form-fieldset">
             <legend><i class="fa-solid fa-user"></i> Vos coordonnées</legend>
             <div class="form-grid">
@@ -263,7 +267,6 @@
             </div>
           </fieldset>
 
-          <!-- Choix de l'activité -->
           <fieldset class="form-fieldset">
             <legend><i class="fa-solid fa-book-bookmark"></i> Choix de l'activité</legend>
             <div class="groupe-champ">
@@ -278,7 +281,6 @@
             </div>
           </fieldset>
 
-          <!-- Section Enfant (Optionnelle) -->
           <fieldset class="form-fieldset form-fieldset-enfant">
             <legend><i class="fa-solid fa-child"></i> Information sur l'enfant (si inscription pour un mineur)</legend>
             <div class="form-grid">
