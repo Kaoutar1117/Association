@@ -1,4 +1,6 @@
 /* --- Style Pro & Élégant pour Mosaïque Citoyenne --- */
+
+/* Reset & Base */
 * {
     margin: 0;
     padding: 0;
@@ -11,42 +13,27 @@ body {
     background-color: #f8fafc;
     color: #1e293b;
     line-height: 1.6;
+    width: 100%;
+    overflow-x: hidden; /* Empêche le défilement horizontal indésirable */
 }
 
-/* Styles spécifiques aux mobiles (écrans < 768px) */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column; /* On empile les éléments verticalement */
-  }
-
-  body {
-    font-size: 16px; /* Taille de texte lisible sans zoomer */
-  }
-}
-
-/* 1. Éviter que les conteneurs dépassent de l'écran */
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden; /* Empêche le défilement horizontal indésirable */
-}
-
-/* 2. Rendre les images et éléments flexibles */
+/* Eléments multimédias flexibles */
 img, iframe, video {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
-/* 3. Remplacer les "width: 1200px" par du "max-width" */
-.mon-conteneur {
-  width: 100%;
-  max-width: 1200px; /* S'adapte sur mobile, ne dépasse pas 1200px sur PC */
-  margin: 0 auto;
+/* Layouts Conteneurs */
+.mon-conteneur,
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
 }
 
 /* --- Navigation Fixe --- */
@@ -79,23 +66,16 @@ header {
     gap: 10px;
 }
 
+.logo strong {
+    color: #2563eb;
+}
+
 .logo-icon {
     background: #2563eb;
     color: white;
     padding: 10px;
     border-radius: 12px;
     font-size: 1.1rem;
-}
-
-/* Style par défaut (Ordinateur / Tablette) */
-.container {
-  display: flex;
-  flex-direction: row;
-}
-
-
-.logo strong {
-    color: #2563eb;
 }
 
 nav ul {
@@ -109,19 +89,8 @@ nav ul li a {
     text-decoration: none;
     color: #475569;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     transition: color 0.3s;
-}
-/* 1. Taille pour ORDINATEUR (écrans larges) */
-nav ul li a {
-  font-size: 1.1rem; /* Environ 18px */
-}
-
-/* 2. Taille pour SMARTPHONE (écrans de moins de 768px) */
-@media (max-width: 768px) {
-  nav ul li a {
-    font-size: 0.7rem; /* Environ 14px pour que tout rentre bien */
-  }
 }
 
 nav ul li a:hover {
@@ -142,7 +111,7 @@ nav ul li a:hover {
     transform: translateY(-2px);
 }
 
-/* --- Hero Banner Impactante --- */
+/* --- Hero Banner --- */
 .hero {
     position: relative;
     background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
@@ -318,6 +287,8 @@ main {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     border: 1px solid #e2e8f0;
     transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
 }
 
 .carte-cours:hover {
@@ -354,6 +325,9 @@ main {
 
 .card-body {
     padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .card-body h3 {
@@ -397,7 +371,7 @@ main {
     background: #f1f5f9;
     padding: 15px;
     border-radius: 10px;
-    margin-top: 15px;
+    margin-top: auto; /* Aligne le planning en bas de la carte */
     font-size: 0.88rem;
 }
 
@@ -457,13 +431,25 @@ main {
     color: #cbd5e1;
 }
 
-/* --- Formulaire d'inscription --- */
+/* --- Formulaire d'inscription (Centré) --- */
+
+#inscription, 
+.section-inscription {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
 .form-container {
-    background: white;
+    background: #ffffff;
     border-radius: 20px;
     padding: 40px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
     border: 1px solid #e2e8f0;
+    width: 100%;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -473,14 +459,54 @@ main {
     margin-bottom: 30px;
 }
 
+.form-fieldset {
+    border: 1px solid #cbd5e1;
+    padding: 24px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.form-fieldset legend {
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0 12px;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 auto;
+}
+
+.form-fieldset legend i {
+    color: #2563eb;
+}
+
+.form-fieldset-enfant {
+    border: 1.5px solid #2563eb;
+    background-color: #f0f7ff;
+}
+
+.form-fieldset-enfant legend {
+    color: #2563eb;
+}
+
 .form-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
 .groupe-champ {
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-grid .groupe-champ {
+    margin-bottom: 0;
 }
 
 .groupe-champ label {
@@ -489,51 +515,68 @@ main {
     font-weight: 600;
     color: #334155;
     font-size: 0.95rem;
+    text-align: left;
 }
 
 .groupe-champ label i {
     color: #2563eb;
-    margin-right: 5px;
+    margin-right: 6px;
 }
 
-.groupe-champ input, .groupe-champ select {
+.groupe-champ input, 
+.groupe-champ select {
     width: 100%;
     padding: 14px 16px;
     border: 1px solid #cbd5e1;
     border-radius: 10px;
     font-size: 0.95rem;
     background: #f8fafc;
-    transition: all 0.3s;
+    color: #0f172a;
+    transition: all 0.3s ease;
 }
 
-.groupe-champ input:focus, .groupe-champ select:focus {
+.groupe-champ input:focus, 
+.groupe-champ select:focus {
     outline: none;
     border-color: #2563eb;
-    background: white;
-    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
 }
 
-.bouton-valider {
+.bouton-valider,
+.btn-block {
     background: #2563eb;
-    color: white;
+    color: #ffffff;
     padding: 16px 30px;
     border: none;
     border-radius: 10px;
     font-size: 1rem;
     font-weight: 700;
     width: 100%;
+    max-width: 400px;
+    margin: 20px auto 0 auto;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-    transition: all 0.3s;
+    transition: all 0.3s ease;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
 
-.bouton-valider:hover {
+.bouton-valider:hover,
+.btn-block:hover {
     background: #1d4ed8;
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+.bouton-valider:disabled,
+.btn-block:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }
 
 /* --- Footer --- */
@@ -580,8 +623,44 @@ footer {
     font-size: 0.85rem;
 }
 
+/* --- Adaptations Mobile / Responsive (< 768px) --- */
 @media (max-width: 768px) {
-    .hero h1 { font-size: 2.2rem; }
-    .form-grid { grid-template-columns: 1fr; }
-    .header-container { flex-direction: column; gap: 15px; }
+    body {
+        font-size: 16px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul li a {
+        font-size: 0.85rem;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .form-container {
+        padding: 20px 15px;
+    }
+    
+    .form-fieldset {
+        padding: 15px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .bouton-valider,
+    .btn-block {
+        max-width: 100%;
+    }
 }
