@@ -1,109 +1,100 @@
-// ==========================================
-// INITIALISATION DU SCRIPT AU CHARGEMENT DE LA PAGE
-// ==========================================
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
+  
+  // ==========================================
+  // 1. INITIALISATION EMAILJS
+  // ==========================================
+  // Remplacez "YOUR_PUBLIC_KEY" par votre clé publique EmailJS
+  if (typeof emailjs !== "undefined") {
+    emailjs.init("YOUR_PUBLIC_KEY");
+  }
 
-  // 1. GESTION DU FORMULAIRE DYNAMIQUE
-  const selectCours = document.getElementById('cours');
-  const champsDynamiques = document.getElementById('champs-dynamiques');
-  const sectionEnfant = document.getElementById('section-enfant');
-  const sectionAdulte = document.getElementById('section-adulte');
+  // ==========================================
+  // 2. GESTION DU MENU MOBILE (NAVBAR)
+  // ==========================================
+  const menuToggle = document.getElementById("menuToggle");
+  const navMenu = document.getElementById("navMenu");
 
-  // Champs Enfant & Responsable
-  const inputNomEleve = document.getElementById('nom_eleve');
-  const inputNomResp = document.getElementById('nom_responsable');
-  const inputTelResp = document.getElementById('telephone_resp');
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener("click", function () {
+      const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", !isExpanded);
+      navMenu.classList.toggle("active");
+    });
 
-  // Champs Adulte
-  const inputNomAdulte = document.getElementById('nom_adulte');
-  const inputTelAdulte = document.getElementById('telephone_adulte');
+    // Fermer le menu lors du clic sur un lien
+    const navLinks = navMenu.querySelectorAll("a");
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
 
-  if (selectCours) {
-    selectCours.addEventListener('change', function() {
-      const val = this.value;
+  // ==========================================
+  // 3. GESTION DYNAMIQUE DU FORMULAIRE D'INSCRIPTION
+  // ==========================================
+  const selectCours = document.getElementById("cours");
+  const sectionEnfant = document.getElementById("section-enfant");
+  const inputsEnfant = sectionEnfant ? sectionEnfant.querySelectorAll("input") : [];
+  const formInscription = document.getElementById("formInscription");
+  const btnSubmit = document.getElementById("btnSubmit");
 
-      if (!val) {
-        // Si rien n'est sélectionné
-        champsDynamiques.style.display = 'none';
-        sectionEnfant.style.display = 'none';
-        sectionAdulte.style.display = 'none';
-        return;
-      }
+  // Liste des cours nécessitant les informations d'un enfant
+  const coursPourEnfant = ["Soutien Scolaire", "Mathématiques"];
 
-      champsDynamiques.style.display = 'block';
+  if (selectCours && sectionEnfant) {
+    selectCours.addEventListener("change", function () {
+      const valeurSelectionnee = selectCours.value;
 
-      // Cours qui nécessitent Nom Élève + Responsable Légal
-      if (val.includes('Soutien') || val.includes('Maths') || val.includes('Saz')) {
-        sectionEnfant.style.display = 'block';
-        sectionAdulte.style.display = 'none';
-
-        // Rendre obligatoire les champs Enfant & Parent
-        inputNomEleve.required = true;
-        inputNomResp.required = true;
-        inputTelResp.required = true;
-
-        // Ne pas exiger les champs Adulte seul
-        inputNomAdulte.required = false;
-        inputTelAdulte.required = false;
-
+      // Vérifie si le cours sélectionné est dans la liste des cours pour enfants
+      if (coursPourEnfant.includes(valeurSelectionnee)) {
+        sectionEnfant.style.display = "block";
+        // Rendre les champs obligatoires
+        inputsEnfant.forEach((input) => input.setAttribute("required", "true"));
       } else {
-        // Cours Adultes (Français, Yoga)
-        sectionEnfant.style.display = 'none';
-        sectionAdulte.style.display = 'block';
-
-        // Rendre obligatoire les champs Adulte
-        inputNomAdulte.required = true;
-        inputTelAdulte.required = true;
-
-        // Ne pas exiger les champs Enfant & Parent
-        inputNomEleve.required = false;
-        inputNomResp.required = false;
-        inputTelResp.required = false;
+        sectionEnfant.style.display = "none";
+        // Retirer le caractère obligatoire et réinitialiser la valeur
+        inputsEnfant.forEach((input) => {
+          input.removeAttribute("required");
+          input.value = "";
+        });
       }
     });
   }
 
-  // 2. ENVOI PAR EMAIL (EMAILJS)
-  
-  // Remplacer VOTRE_PUBLIC_KEY par la clé publique EmailJS
-  const PUBLIC_KEY = "VOTRE_PUBLIC_KEY"; 
-  const SERVICE_ID = "service_xxxxxxx";   // Remplacer par l'ID du service EmailJS
-  const TEMPLATE_ID = "template_xxxxxxx"; // Remplacer par l'ID du template EmailJS
-
-  if (typeof emailjs !== 'undefined' && PUBLIC_KEY !== "VOTRE_PUBLIC_KEY") {
-    emailjs.init(PUBLIC_KEY);
-  }
-
-  const formInscription = document.getElementById('formInscription');
-
+  // ==========================================
+  // 4. SOUMISSION ET ENVOI PAR EMAILJS
+  // ==========================================
   if (formInscription) {
-    formInscription.addEventListener('submit', function(event) {
-      event.preventDefault();
+    formInscription.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-      const btn = event.target.querySelector('button');
-      const originalText = btn.innerHTML;
-      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Envoi en cours...';
-      btn.disabled = true;
+      // Changement du bouton durant l'envoi
+      const originalText = btnSubmit.innerHTML;
+      btnSubmit.disabled = true;
+      btnSubmit.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Envoi en cours...';
 
-      if (typeof emailjs === 'undefined' || PUBLIC_KEY === "VOTRE_PUBLIC_KEY") {
-        alert('Attention : Le service EmailJS doit être configuré avec vos véritables clés API pour envoyer le mail.');
-        btn.innerHTML = originalText;
-        btn.disabled = false;
-        return;
-      }
+      // Identifiants EmailJS (à remplacer par les vos propres clés)
+      const serviceID = "service_uvn7z8j";
+      const templateID = "template_swh41ll";
+      const PUBLIC_KEY = "3O5tNY2-qMHJPfTia";
 
-      emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, this)
-        .then(function() {
-          alert('Votre demande d\'inscription a bien été transmise par e-mail à l\'association !');
+      // Envoi du formulaire via EmailJS
+      emailjs
+        .sendForm(serviceID, templateID, formInscription)
+        .then(() => {
+          alert("Votre demande d'inscription a bien été envoyée ! Nous vous contacterons rapidement.");
           formInscription.reset();
-          if (champsDynamiques) champsDynamiques.style.display = 'none';
-          btn.innerHTML = originalText;
-          btn.disabled = false;
-        }, function(error) {
-          alert('Erreur lors de l\'envoi du formulaire. Veuillez réessayer ou contacter l\'association directement par téléphone.');
-          console.error('EmailJS Error:', error);
-          btn.innerHTML = originalText;
-          btn.disabled = false;
+          if (sectionEnfant) sectionEnfant.style.display = "none";
+        })
+        .catch((error) => {
+          console.error("Erreur lors de l'envoi :", error);
+          alert("Une erreur s'est produite lors de l'envoi. Veuillez réessayer ou nous contacter directement.");
+        })
+        .finally(() => {
+          btnSubmit.disabled = false;
+          btnSubmit.innerHTML = originalText;
         });
     });
   }
