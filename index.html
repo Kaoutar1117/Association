@@ -241,120 +241,94 @@
       </div>
     </section>
 
-    <!-- Formulaire d'inscription -->
-    <section id="inscription" class="section">
-      <div class="form-container">
-        <div class="form-header">
-          <h2>Formulaire de Pré-inscription</h2>
-          <p>Sélectionnez d'abord le cours souhaité, puis complétez les informations demandées.</p>
+    <!-- Section Formulaire d'Inscription Centrée -->
+        <section id="inscription" class="section-inscription">
+            <div class="form-header">
+                <h2>Formulaire d'Inscription</h2>
+                <p>Veuillez remplir vos coordonnées ci-dessous pour effectuer une demande d'inscription.</p>
+            </div>
+
+            <div class="form-container">
+                <form action="#" method="POST">
+                    
+                    <!-- Coordonnées -->
+                    <fieldset class="form-fieldset">
+                        <legend><i class="fa-solid fa-user"></i> Vos coordonnées</legend>
+                        <div class="form-grid">
+                            <div class="groupe-champ">
+                                <label for="nom">Nom *</label>
+                                <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+                            </div>
+                            <div class="groupe-champ">
+                                <label for="prenom">Prénom *</label>
+                                <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+                            </div>
+                            <div class="groupe-champ">
+                                <label for="email">Adresse e-mail *</label>
+                                <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                            </div>
+                            <div class="groupe-champ">
+                                <label for="telephone">Numéro de téléphone *</label>
+                                <input type="tel" id="telephone" name="telephone" placeholder="06 00 00 00 00" required>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Choix de l'activité -->
+                    <fieldset class="form-fieldset">
+                        <legend><i class="fa-solid fa-book-bookmark"></i> Choix de l'activité</legend>
+                        <div class="groupe-champ">
+                            <label for="cours-select">Sélectionnez le cours souhaité *</label>
+                            <select id="cours-select" name="cours" required>
+                                <option value="" disabled selected>Choisissez une option...</option>
+                                <option value="soutien">Soutien Scolaire</option>
+                                <option value="saz">Cours de Saz</option>
+                                <option value="langues">Ateliers Linguistiques</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <!-- Section Enfant (Optionnelle) -->
+                    <fieldset class="form-fieldset form-fieldset-enfant">
+                        <legend><i class="fa-solid fa-child"></i> Information sur l'enfant (si inscription pour un mineur)</legend>
+                        <div class="form-grid">
+                            <div class="groupe-champ">
+                                <label for="nom-enfant">Nom de l'enfant</label>
+                                <input type="text" id="nom-enfant" name="nom_enfant" placeholder="Nom de l'enfant">
+                            </div>
+                            <div class="groupe-champ">
+                                <label for="prenom-enfant">Prénom de l'enfant</label>
+                                <input type="text" id="prenom-enfant" name="prenom_enfant" placeholder="Prénom de l'enfant">
+                            </div>
+                            <div class="groupe-champ">
+                                <label for="classe">Classe / Niveau</label>
+                                <input type="text" id="classe" name="classe" placeholder="Ex: 6ème, CM2...">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="bouton-valider">
+                        <i class="fa-solid fa-paper-plane"></i> Envoyer ma demande
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3 class="footer-logo"><i class="fa-solid fa-mosaic"></i> Mosaïque Citoyenne</h3>
+                <p>Association dédiée à l'apprentissage, à la culture et à l'accompagnement éducatif.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p><i class="fa-solid fa-envelope"></i> contact@mosaique-citoyenne.fr</p>
+                <p><i class="fa-solid fa-phone"></i> 01 00 00 00 00</p>
+            </div>
         </div>
-
-        <form id="formInscription">
-          <!-- STEP 1 : Choix du cours -->
-          <div class="groupe-champ">
-            <label for="cours"><i class="fa-solid fa-book"></i> 1. Choisissez le programme souhaité :</label>
-            <select id="cours" name="chosen_course" required>
-              <option value="">-- Sélectionnez une activité --</option>
-              <option value="Soutien Scolaire - Primaires (Lu/Ma/Je/Ve 17h-18h)">Soutien Scolaire - Primaires (Lu/Ma/Je/Ve 17h-18h)</option>
-              <option value="Soutien Scolaire - Collégiens (Lu/Ma/Je/Ve 18h-19h)">Soutien Scolaire - Collégiens (Lu/Ma/Je/Ve 18h-19h)</option>
-              <option value="Maths & Sciences individuel (Samedi sur inscription)">Cours individuel de Maths & Sciences (Samedi sur inscription)</option>
-              <option value="Cours de Saz">Cours de Saz</option>
-              <option value="Français Adultes - Journée (9h-11h / 14h-16h)">Cours de Français - En journée (9h-11h / 14h-16h)</option>
-              <option value="Français Adultes - Soirée (Mardi/Vendredi 19h15-20h15)">Cours de Français - En soirée (Mardi/Vendredi 19h15-20h15)</option>
-              <option value="Yoga - Jeudi 13h30 (Salle Colucci)">Cours de Yoga - Jeudi 13h30 (Salle Colucci - Participation)</option>
-            </select>
-          </div>
-
-          <!-- STEP 2 : Informations personnelles (S'affiche dynamiquement) -->
-          <div id="champs-dynamiques" style="display: none; margin-top: 20px;">
-            <!-- Option A : Si cours ENFANT/JEUNE (Soutien, Maths, Saz) -->
-            <div id="section-enfant" style="display: none;">
-              <h3 style="margin-bottom: 15px; font-size: 1.1rem; color: #2c3e50;"><i class="fa-solid fa-child"></i> Informations sur l'élève</h3>
-              <div class="form-grid">
-                <div class="groupe-champ">
-                  <label for="nom_eleve"><i class="fa-solid fa-user-graduate"></i> Nom et Prénom de l'élève :</label>
-                  <input type="text" id="nom_eleve" name="student_name" placeholder="Ex: Lucas Dupont">
-                </div>
-                <div class="groupe-champ">
-                  <label for="classe_eleve"><i class="fa-solid fa-school"></i> Classe / Âge :</label>
-                  <input type="text" id="classe_eleve" name="student_class" placeholder="Ex: Classe de CM2 (10 ans)">
-                </div>
-              </div>
-
-              <h3 style="margin-top: 20px; margin-bottom: 15px; font-size: 1.1rem; color: #2c3e50;"><i class="fa-solid fa-user-shield"></i> Responsable légal</h3>
-              <div class="form-grid">
-                <div class="groupe-champ">
-                  <label for="nom_responsable"><i class="fa-solid fa-user"></i> Nom et Prénom du responsable :</label>
-                  <input type="text" id="nom_responsable" name="parent_name" placeholder="Ex: Marie Dupont">
-                </div>
-                <div class="groupe-champ">
-                  <label for="telephone_resp"><i class="fa-solid fa-phone"></i> Téléphone du responsable :</label>
-                  <input type="tel" id="telephone_resp" name="parent_phone" placeholder="Ex: 06 12 34 56 78">
-                </div>
-              </div>
-            </div>
-
-            <!-- Option B : Si cours ADULTE (Français, Yoga) -->
-            <div id="section-adulte" style="display: none;">
-              <h3 style="margin-bottom: 15px; font-size: 1.1rem; color: #2c3e50;"><i class="fa-solid fa-user"></i> Informations sur le participant</h3>
-              <div class="form-grid">
-                <div class="groupe-champ">
-                  <label for="nom_adulte"><i class="fa-solid fa-user"></i> Nom et Prénom de l'adulte :</label>
-                  <input type="text" id="nom_adulte" name="adult_name" placeholder="Ex: Marie Dupont">
-                </div>
-                <div class="groupe-champ">
-                  <label for="telephone_adulte"><i class="fa-solid fa-phone"></i> Numéro de Téléphone :</label>
-                  <input type="tel" id="telephone_adulte" name="adult_phone" placeholder="Ex: 06 12 34 56 78">
-                </div>
-              </div>
-            </div>
-
-            <!-- Champ Email Commun -->
-            <div class="groupe-champ" style="margin-top: 15px;">
-              <label for="email"><i class="fa-solid fa-envelope"></i> Adresse Email de contact :</label>
-              <input type="email" id="email" name="user_email" required placeholder="Ex: contact@email.com">
-            </div>
-
-            <!-- Remarques -->
-            <div class="groupe-champ" style="margin-top: 15px;">
-              <label for="message"><i class="fa-solid fa-comment"></i> Remarques / Précisions complémentaires :</label>
-              <textarea id="message" name="message" rows="3" placeholder="Précisez votre besoin, questions ou disponibilités..."></textarea>
-            </div>
-
-            <button type="submit" class="bouton-valider" style="margin-top: 20px;"><i class="fa-solid fa-paper-plane"></i> Envoyer ma demande d'inscription</button>
-          </div>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer Pro -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-col">
-        <div class="logo footer-logo">
-          <i class="fa-solid fa-graduation-cap"></i>
-          <span>Mosaïque <strong>Citoyenne</strong></span>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Mosaïque Citoyenne. Tous droits réservés.</p>
         </div>
-        <p>Association éducative, culturelle et sociale engagée pour la réussite et le vivre-ensemble à Goussainville.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Contact & Adresse</h4>
-        <p><i class="fa-solid fa-location-dot"></i> 2 RUE ELA CONSTANTINIDE<br>95190 Goussainville</p>
-      </div>
-      <div class="footer-col">
-        <h4>Horaires Clefs</h4>
-        <p>
-          <i class="fa-solid fa-clock"></i> Primaires : 17h-18h | Collège : 18h-19h<br>
-          <i class="fa-solid fa-spa"></i> Yoga : Jeudi 13h30 (Salle Colucci)<br>
-          <i class="fa-solid fa-calendar"></i> Samedi : Maths individuel sur inscription
-        </p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Mosaïque Citoyenne - Tous droits réservés.</p>
-    </div>
-  </footer>
-
-</body>
-</html>
+    </footer>
