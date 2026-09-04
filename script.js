@@ -1,67 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  // ==========================================
-  // CONFIGURATION EMAILJS
-  // ==========================================
-  const PUBLIC_KEY = "3O5tNY2-qMHJPfTia";
-  const SERVICE_ID = "service_uvn7z8j";
-  const TEMPLATE_ID = "template_p5xka8u";
 
-  // Initialisation sécurisée
-  if (typeof emailjs !== "undefined") {
-    try {
-      emailjs.init(PUBLIC_KEY);
-    } catch (e) {
-      console.warn("Erreur d'initialisation EmailJS :", e);
-    }
-  }
+ 
 
   // ==========================================
-  // 1. GESTION DU MODE SOMBRE (DARK MODE)
-  // ==========================================
-  const themeToggleBtn = document.getElementById("theme-toggle");
-  const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector("i") : null;
-
-  // Restauration du thème sauvegardé
-  try {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      document.body.classList.add("dark-mode");
-      if (themeIcon) {
-        themeIcon.classList.remove("fa-moon");
-        themeIcon.classList.add("fa-sun");
-      }
-    }
-  } catch (e) {
-    console.warn("localStorage non accessible.");
-  }
-
-  // Clic sur le bouton de thème
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-      const isDarkMode = document.body.classList.contains("dark-mode");
-
-      if (themeIcon) {
-        if (isDarkMode) {
-          themeIcon.classList.remove("fa-moon");
-          themeIcon.classList.add("fa-sun");
-        } else {
-          themeIcon.classList.remove("fa-sun");
-          themeIcon.classList.add("fa-moon");
-        }
-      }
-
-      try {
-        localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-      } catch (e) {
-        console.warn("Impossible de sauvegarder dans localStorage.");
-      }
-    });
-  }
-
-  // ==========================================
-  // 2. GESTION DU MENU MOBILE (NAVBAR)
+  // 1. GESTION DU MENU MOBILE (NAVBAR)
   // ==========================================
   const menuToggle = document.getElementById("menuToggle");
   const navMenu = document.getElementById("navMenu");
@@ -83,29 +26,55 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ==========================================
-  // 3. AFFICHAGE DYNAMIQUE DES CHAMPS ENFANT
+  // 2. GESTION DE LA MODALE GALERIE / ARTICLE
   // ==========================================
-  const selectCours = document.getElementById("cours-select");
-  const sectionEnfant = document.querySelector(".form-fieldset-enfant");
-  const inputsEnfant = sectionEnfant ? sectionEnfant.querySelectorAll("input") : [];
+  const modal = document.getElementById("galerieModal");
+  const galerieItems = document.querySelectorAll(".galerie-item");
+  const spanFermer = document.querySelector(".modal-fermer");
 
-  // Cours nécessitant la saisie des infos enfant
-  const coursPourEnfant = ["Soutien Scolaire", "Mathématiques"];
+  const modalImg = document.getElementById("modalImg");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalDesc = document.getElementById("modalDesc");
+  const modalArticle = document.getElementById("modalArticle");
 
-  if (selectCours && sectionEnfant) {
-    selectCours.addEventListener("change", function () {
-      const valeurSelectionnee = selectCours.value;
+  if (modal && galerieItems.length > 0) {
+    galerieItems.forEach(item => {
+      item.addEventListener("click", function () {
+        const imgSrc = this.getAttribute("data-img");
+        const title = this.getAttribute("data-title");
+        const desc = this.getAttribute("data-desc");
+        const article = this.getAttribute("data-article");
 
-      if (coursPourEnfant.includes(valeurSelectionnee)) {
-        sectionEnfant.style.display = "block";
-      } else {
-        sectionEnfant.style.display = "block"; // Garde visible si souhaité, ou bascule sur "none"
+        if (modalImg) modalImg.src = imgSrc;
+        if (modalTitle) modalTitle.textContent = title;
+        if (modalDesc) modalDesc.textContent = desc;
+        if (modalArticle) modalArticle.textContent = article;
+
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden"; // Empêche le défilemet de la page en arrière-plan
+      });
+    });
+
+    if (spanFermer) {
+      spanFermer.addEventListener("click", fermerModal);
+    }
+
+    window.addEventListener("click", function (event) {
+      if (event.target === modal) {
+        fermerModal();
       }
     });
   }
 
+  function fermerModal() {
+    if (modal) {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+  }
+
   // ==========================================
-  // 4. SOUMISSION DU FORMULAIRE D'INSCRIPTION
+  // 3. SOUMISSION DU FORMULAIRE D'INSCRIPTION
   // ==========================================
   const formInscription = document.getElementById("formInscription");
   const btnSubmit = document.getElementById("btnSubmit");
@@ -120,7 +89,6 @@ document.addEventListener("DOMContentLoaded", function () {
         btnSubmit.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Envoi en cours...';
       }
 
-      // Construction explicite des données pour le template EmailJS
       const templateParams = {
         nom: document.getElementById("nom") ? document.getElementById("nom").value : "",
         prenom: document.getElementById("prenom") ? document.getElementById("prenom").value : "",
@@ -138,7 +106,6 @@ document.addEventListener("DOMContentLoaded", function () {
           : "Non renseignée"
       };
 
-      // Envoi sécurisé des paramètres
       emailjs
         .send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
         .then(() => {
@@ -147,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch((error) => {
           console.error("Erreur d'envoi EmailJS :", error);
-          alert("Une erreur s'est produite lors de l'envoi. Veuillez réessayer.");
+          alert("Une erreur s'est produite lors de l'envoi. Veuillez vérifier votre console.");
         })
         .finally(() => {
           if (btnSubmit) {
